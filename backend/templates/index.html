@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>YOLO 객체 탐지</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        video, canvas { width: 640px; height: 480px; border: 2px solid black; }
+        button { padding: 10px; font-size: 16px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>YOLO 객체 탐지</h1>
+    <video id="camera" autoplay></video>
+    <canvas id="canvas"></canvas>
+    <button onclick="captureImage()">이미지 캡처 & 서버 전송</button>
+
+    <script>
+        const video = document.getElementById('camera');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // 🔹 카메라 활성화
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => video.srcObject = stream)
+            .catch(error => console.error("카메라 접근 실패:", error));
+
+        // 🔹 이미지 캡처 & 서버 전송
+        function captureImage() {
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageData = canvas.toDataURL("image/png");
+
+            console.log("캡처된 이미지 데이터:", imageData);  // 🔥 콘솔에 출력!
+
+            fetch("/upload", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ image: imageData })
+            }).then(response => response.json())
+              .then(data => console.log("서버 응답:", data))  // 🔥 서버 응답 콘솔 출력!
+              .catch(error => console.error("서버 전송 오류:", error));
+        }
+    </script>
+</body>
+</html>
