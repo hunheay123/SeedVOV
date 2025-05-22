@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>간단 게시판</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>간단 게시판</h1>
+
+  <div class="form">
+    <input type="text" id="title" placeholder="제목 입력">
+    <textarea id="content" placeholder="내용 입력"></textarea>
+    <button onclick="addPost()">글 등록</button>
+  </div>
+
+  <div id="board">
+    <h2>게시판 목록</h2>
+    <ul id="postList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

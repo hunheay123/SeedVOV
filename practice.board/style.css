@@ -1,0 +1,35 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 30px;
+  padding: 0;
+  text-align: center;
+}
+
+.form {
+  margin-bottom: 30px;
+}
+
+input, textarea {
+  display: block;
+  margin: 10px auto;
+  width: 300px;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#board {
+  text-align: left;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.post-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
