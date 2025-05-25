@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -41,5 +41,21 @@
               .catch(error => console.error("서버 전송 오류:", error));
         }
     </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YOLOv5 WebSocket</title>
+</head>
+<body>
+    <h1>웹캠에서 YOLO 객체 인식</h1>
+   <video id="video" autoplay playsinline width="640" height="480" style="position:absolute; top:0; left:0;"></video>
+    <canvas id="overlay" width="640" height="480" style="position:absolute; top:0; left:0;"></canvas>
+
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='client.js') }}"></script>
 </body>
 </html>
