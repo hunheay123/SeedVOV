@@ -1,0 +1,3 @@
+[submodule "yolov5_select _mage_ver"]
+    path = yolov5_select _mage_ver
+    url = ...
